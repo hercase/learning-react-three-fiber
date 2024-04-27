@@ -3,24 +3,21 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import Light from "../Light";
 import Box from "../Box";
 
+const MAX_BOXES = 5;
+
 const Scene = () => {
   const colorMap = useLoader(TextureLoader, "/textures/Color.jpg");
-
   const { scene } = useThree();
-
+  const half = Math.floor(MAX_BOXES / 2);
   scene.background = colorMap;
 
   return (
     <>
-      <ambientLight intensity={0.2} />
-      <Light color="cyan" position={[-1, -1, 1.5]} />
-      <Light color="magenta" position={[0, 0, 1.5]} />
-      <Light color="yellow" position={[1, 1, 1.5]} />
-      <Light color="cyan" position={[-2, -1, 1.5]} />
-      <Light color="magenta" position={[0, 0, 1.5]} />
-      <Light color="yellow" position={[2, 1, 1.5]} />
-      {[...Array(5)].map((_, index) => (
-        <Box key={index} position={[-2 + index, -2 + index, 0]} />
+      <Light color="cyan" position={[0, 2, 1]} />
+      <Light color="magenta" position={[-3, -3, 0.5]} />
+      <Light color="yellow" position={[3, 2, 1]} />
+      {[...Array(MAX_BOXES)].map((_, index) => (
+        <Box key={index} position={[-half + index, -half + index, 0]} />
       ))}
     </>
   );

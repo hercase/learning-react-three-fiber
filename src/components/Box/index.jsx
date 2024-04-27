@@ -6,7 +6,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 const Box = ({ position }) => {
   const [hovered, setHovered] = useState(false);
   const mesh = useRef();
-  const { scale } = useSpring({ scale: hovered ? 1.5 : 1 });
+  const { scale } = useSpring({ scale: hovered ? 1.2 : 1 });
   const [colorMap, displacementMap, normalMap, roughnessMap, metalnessMap] = useLoader(TextureLoader, [
     "/textures/Color.jpg",
     "/textures/Displacement.jpg",
@@ -16,8 +16,11 @@ const Box = ({ position }) => {
   ]);
 
   useFrame(() => {
-    mesh.current.rotation.x += 0.01;
-    mesh.current.rotation.y += 0.01;
+    if (hovered) {
+      mesh.current.rotation.x += 0.01;
+      mesh.current.rotation.y += 0.01;
+      mesh.current.rotation.z += 0.01;
+    }
   });
 
   return (
