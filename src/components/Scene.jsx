@@ -1,7 +1,8 @@
 import { useLoader, useThree } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import Light from "../Light";
-import Box from "../Box";
+import Light from "./Light";
+import Box from "./Box";
+import Ground from "./Ground";
 
 const MAX_BOXES = 5;
 
@@ -16,6 +17,9 @@ const Scene = () => {
       <Light color="cyan" position={[0, 2, 1]} />
       <Light color="magenta" position={[-3, -3, 0.5]} />
       <Light color="yellow" position={[3, 2, 1]} />
+
+      <Ground />
+
       {[...Array(MAX_BOXES)].map((_, index) => (
         <Box key={index} position={[-half + index, -half + index, 0]} />
       ))}
