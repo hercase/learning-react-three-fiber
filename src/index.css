@@ -4,8 +4,21 @@
   box-sizing: border-box;
 }
 
-.canvas-container {
+::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
   position: relative;
   width: 100vw;
   height: 100vh;
+  margin: 0 auto;
+}
+
+.container-3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

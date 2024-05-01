@@ -1,5 +1,5 @@
 const Light = ({ color, position }) => {
-  return <pointLight intensity={4} color={color} position={position} />;
+  return <directionalLight intensity={2} color={color} position={position} />;
 };
 
 export default Light;

@@ -1,15 +1,14 @@
 import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
 import Scene from "./components/Scene";
 
 function App() {
   return (
-    <div className="canvas-container">
-      <Canvas>
+    <div className="wrapper">
+      <div className="container-3d">
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
-      </Canvas>
+      </div>
     </div>
   );
 }
